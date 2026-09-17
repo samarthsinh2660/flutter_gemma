@@ -68,6 +68,11 @@ That scans your dependencies and installs every skill they bundle where your age
 
 What they cover: registering an engine (core ships none), routing by the declared `ModelFileType` rather than the filename, and the two defaults that fail quietly — `maxTokens` is the context window and not the reply length, and `Message.isUser` defaults to `false`.
 
+## What's new in 1.8.3
+
+- 🍎 **`.litertlm` on iOS no longer double-wraps prompts** — every prompt was getting turn markers twice; `StopTokenFilter` is deprecated ([#511](https://github.com/DenisovAV/flutter_gemma/issues/511)).
+- 🧩 **Sharper agent skills** — NPU needs a Gemma 4 bundle (Gemma 3 drops prefill chunks silently), macOS setup no longer adds iOS-only entitlements that break unsigned builds, and the speech skill calls out microphone permission on iOS, macOS and Android.
+
 ## What's new in 1.8.2
 
 - 🤖 **Agent skills ship with the package** — `dart run skills@ get --all` installs seven skills that teach your coding assistant this API: inference (with platform setup), function calling, RAG, speech, MediaPipe, ONNX and built-in AI. Every code block in them is compiled against these packages before each release.
